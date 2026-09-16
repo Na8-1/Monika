@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Աշակերտական Խորհրդի Նախագահի Թեկնածու</title>
+    <!-- Google Fonts ճոխ շրիֆտերի համար -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Sans+Armenian:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ԹԵՄԱ ԳՈՒՅՆԵՐ ԵՎ ՀԻՄՆԱԿԱՆ ՍՏԻԼՆԵՐ --- */
+        :root {
+            --bg-color: #0d0205;
+            --royal-red: #580a14;
+            --deep-crimson: #2b0409;
+            --gold-primary: #d4af37;
+            --gold-light: #f7e7ce;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --text-light: #f5f5f5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans Armenian', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            /* Այստեղ կարող եք ավելացնել ձեր նախընտրած ֆոնային նկարը */
+            background-image: radial-gradient(circle at center, rgba(88, 10, 20, 0.5) 0%, rgba(13, 2, 5, 0.95) 100%), 
+                              url('YOUR_BACKGROUND_IMAGE_HERE.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* --- ՎԵՐՆԱԳՐԵՐ ԵՎ ՈՍԿԵԳՈՒՅՆ ԷՖԵԿՏՆԵՐ --- */
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Cinzel', 'Noto Sans Armenian', serif;
+            font-weight: 700;
+        }
+
+        .gold-border {
+            border: 2px solid var(--gold-primary);
+            border-image: var(--gold-gradient) 1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 480px; /* Հատուկ հեռախոսների էկրանի չափս */
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 5px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* --- ՆԿԱՐԻ ԲԱԺԻՆ (ՈՒՂՂԱՆԿՅՈՒՆ + ՌԱՄԿԱ) --- */
+        .profile-container {
+            position: relative;
+            width: 240px;
+            height: 320px;
+            margin: 0 auto 30px auto;
+            padding: 8px;
+            background: var(--gold-gradient);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+        }
+
+        .profile-inner-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--royal-red);
+            overflow: hidden;
+            background-color: #1a0307;
+        }
+
+        /* Ձեր նկարը այստեղ */
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Ռամկայի զարդանախշերի իմիտացիա (Անկյունային նախշեր) */
+        .corner-pattern {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--gold-primary);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .top-left { top: 5px; left: 5px; border-right: none; border-bottom: none; }
+        .top-right { top: 5px; right: 5px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 5px; left: 5px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 5px; right: 5px; border-left: none; border-top: none; }
+
+        /* --- ԲԱԺԻՆՆԵՐԻ ՔԱՐՏԵՐ --- */
+        .card {
+            background: rgba(43, 4, 9, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--gold-primary);
+            padding-bottom: 8px;
+        }
+
+        /* --- ԾՐԱԳՐԵՐ (LIST) --- */
+        .program-list {
+            list-style: none;
+        }
+
+        .program-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .program-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 5px;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+        }
+
+        /* --- ՀԵՏՀԱՇՎԱՐԿԻ ԺԱՄԱՑՈՒՅՑ --- */
+        .timer-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .timer-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--gold-primary);
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        .timer-number {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--gold-light);
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        /* --- ԱՌԱՋԱՐԿՆԵՐԻ ՖՈՐՄԱ --- */
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background: rgba(13, 2, 5, 0.8);
+            border: 1px solid var(--gold-primary);
+            color: #fff;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        button.btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* --- ԼՈՂԱՑՈՂ ԵՐԱԺՇՏՈՒԹՅԱՆ ԿՈՃԱԿ --- */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold-gradient);
+            border: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🎵 Ֆոնային երաժշտության նվագարկիչ -->
+    <!-- Ավեացրեք ձեր երաժշտության ֆայլի հղումը src=""-ում -->
+    <audio id="bgMusic" loop>
+        <source src="YOUR_MUSIC_FILE.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" onclick="toggleMusic()" id="musicToggleBtn">🎵</button>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header>
+            <div class="subtitle">Աշակերտական Խորհրդի Ընտրություններ</div>
+            <h1 class="gold-text">ԱՆՈՒՆ ԱԶԳԱՆՈՒՆ</h1>
+            <p>Ձեր Ձայնը • Ձեր Ապագան • Ձեր Դպրոցը</p>
+        </header>
+
+        <!-- 🖼️ ՆԿԱՐԻ ԲԱԺԻՆ (ՌԱՄԿԱՅՈՎ) -->
+        <div class="profile-container">
+            <div class="profile-inner-frame">
+                <div class="corner-pattern top-left"></div>
+                <div class="corner-pattern top-right"></div>
+                <div class="corner-pattern bottom-left"></div>
+                <div class="corner-pattern bottom-right"></div>
+                
+                <!-- Փոխարինեք YOUR_IMAGE.jpg-ը ձեր նկարով -->
+                <img src="https://via.placeholder.com/240x320" alt="Թեկնածուի նկարը" class="profile-img">
+            </div>
+        </div>
+
+        <!-- 📜 ԿԵՆՍԱԳՐՈՒԹՅՈՒՆ -->
+        <div class="card">
+            <h2 class="gold-text">Իմ Մասին</h2>
+            <p>
+                Ողջույն, հարգելի՛ աշակերտներ և ուսուցիչներ։ Ես [Ձեր Անունը]-ն եմ՝ [11-րդ/12-րդ] դասարանից։ 
+                Իմ դպրոցական տարիների ընթացքում ես միշտ ձգտել եմ լինել նախաձեռնող, լսել յուրաքանչյուր աշակերտի ձայնը և դրական փոփոխություններ բերել մեր առօրյայում։ 
+            </p>
+        </div>
+
+        <!-- 💎 ԻՆՉՈՒ ԸՆՏՐԵԼ ԻՆՁ -->
+        <div class="card">
+            <h2 class="gold-text">Առանցքային Արժեքներ</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: center;">
+                <div style="border: 1px solid var(--gold-primary); padding: 10px; border-radius: 8px;">
+                    <div style="font-size: 1.5rem;">👑</div>
+                    <strong class="gold-text">Առաջնորդություն</strong>
+                </div>
+                <div style="border: 1px solid var(--gold-primary); padding: 10px; border-radius: 8px;">
+                    <div style="font-size: 1.5rem;">🤝</div>
+                    <strong class="gold-text">Լսելի Ձայն</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🎯 ԾՐԱԳՐԵՐ -->
+        <div class="card">
+            <h2 class="gold-text">Նախընտրական Ծրագիր</h2>
+            <ul class="program-list">
+                <li><strong>Դպրոցական Միջոցառումներ:</strong> Կազմակերպել ավելի շատ ինտելեկտուալ, մշակութային և ժամանցային ֆորումներ:</li>
+                <li><strong>Աշակերտի Ձայնը:</strong> Ստեղծել «Անանուն Առաջարկների Տուփ», որպեսզի յուրաքանչյուրի խնդիրը լսելի լինի:</li>
+                <li><strong>Հանգստի Զոնաներ:</strong> Բարելավել դպրոցի հանգստի գոտիները դասամիջոցների համար:</li>
+                <li><strong>Միջդասարանային Սպորտային Մրցաշարեր:</strong> Ակտիվացնել սպորտային կյանքը ավագ դպրոցում:</li>
+            </ul>
+        </div>
+
+        <!-- ⏳ ՀԵՏՀԱՇՎԱՐԿ ՄԻՆՉԵՎ ԸՆՏՐՈՒԹՅՈՒՆՆԵՐԸ -->
+        <div class="card">
+            <h2 class="gold-text">Քվեարկությանը Մնաց</h2>
+            <div class="timer-container">
+                <div class="timer-box">
+                    <div class="timer-number" id="days">00</div>
+                    <div class="timer-label">Օր</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-number" id="hours">00</div>
+                    <div class="timer-label">Ժամ</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-number" id="minutes">00</div>
+                    <div class="timer-label">Րոպե</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 💬 ԱՌԱՋԱՐԿՆԵՐԻ ԲԱԺԻՆ (INTERACTIVE) -->
+        <div class="card">
+            <h2 class="gold-text">Գրիր Քո Առաջարկը</h2>
+            <form onsubmit="event.preventDefault(); alert('Շնորհակալություն առաջարկի համար։');">
+                <input type="text" placeholder="Քո անունը (կամ անանուն)">
+                <textarea rows="3" placeholder="Ո՞րն է քո առաջարկը դպրոցը լավացնելու համար..."></textarea>
+                <button type="submit" class="btn-submit">Ուղարկել Առաջարկը</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 🎵 Երաժշտության միացնել/անջատելը
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicToggleBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.innerText = '🎵';
+            } else {
+                music.play();
+                musicBtn.innerText = '🔊';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // ⏳ Հետհաշվարկի Ֆունկցիա (Փոխեք ամսաթիվը ձեր ընտրությունների օրով)
+        const electionDate = new Date("2026-10-01T09:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = electionDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.querySelector(".timer-container").innerHTML = "<h3 class='gold-text'>Քվեարկությունն Ընթացքի Մեջ Է:</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
